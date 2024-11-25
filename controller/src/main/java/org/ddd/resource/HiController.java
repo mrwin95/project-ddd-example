@@ -18,4 +18,10 @@ public class HiController {
         String win = "Win";
         return eventAppService.sayHello(win);
     }
+
+    @GetMapping("/hello1")
+    public String sayHi1() {
+        String win = "H1";
+        return eventAppService.sayHello(win);
+    }
 }

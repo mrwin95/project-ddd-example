@@ -1,5 +1,26 @@
 server:
   port: 3030
+  tomcat:
+    threads:
+      max: 10 #max 200
 spring:
   application:
     name: Start App
+
+resilience4j:
+  ratelimiter:
+    instances:
+      backendA:
+        limit-for-period: 10
+        limit-refresh-period:
+          seconds: 1s
+        timeout-duration:
+          seconds: 0
+        register-health-indicator: true
+        event-consumer-buffer-size: 100
+      backendB:
+        limit-for-period: 6
+        limit-refresh-period:
+          seconds: 500s
+        timeout-duration:
+          seconds: 3s
