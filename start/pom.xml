@@ -7,10 +7,12 @@
         <groupId>org.ddd</groupId>
         <artifactId>project-ddd-example</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>start</artifactId>
 
+    <packaging>jar</packaging>
     <properties>
         <maven.compiler.source>23</maven.compiler.source>
         <maven.compiler.target>23</maven.compiler.target>
@@ -24,4 +26,21 @@
             <version>${project.version}</version>
         </dependency>
     </dependencies>
+    <!-- Add Spring Boot Plugin to make this JAR executable -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.4.0</version> <!-- Make sure this version matches your Spring Boot version -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal> <!-- Repackage the JAR to make it executable -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

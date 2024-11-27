@@ -24,3 +24,11 @@ resilience4j:
           seconds: 500s
         timeout-duration:
           seconds: 3s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics
+  endpoint:
+    health:
+      show-details: always
