@@ -48,7 +48,7 @@ jobs:
         run: |
           echo "Generate Docker tag: $IMAGE_TAG"
           docker build -t $ECR_REPOSITORY_URI:$IMAGE_TAG -t ECR_REPOSITORY_URI:latest .
-          docker push -a ECR_REPOSITORY_URI
+          docker push -a $ECR_REPOSITORY_URI
 
 
 
